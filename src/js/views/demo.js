@@ -6,7 +6,8 @@ import { Context } from "../store/appContext";
 import "../../styles/demo.css";
 
 export const Demo = () => {
-	const { store, actions } = useContext(Context);
+	
+	const { store, actions } = useContext(Context); // <--- Flux viene del Appcontext
 
 	return (
 		<div className="container">

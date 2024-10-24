@@ -11,8 +11,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: "SECOND",
 					background: "white",
 					initial: "white"
+				},
+				{
+					title: "Agustin",
+					background: "blue",
+					initial: "white"
+				},
+				{
+					title: "Emiliano",
+					background: "purple",
+					initial: "white"
 				}
-			]
+			],
+			pokemones: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -24,6 +35,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+
+			loadPokemons:  async () => {
+				const pokeApiUrl = "https://pokeapi.co/api/v2/pokemon"
+				const resp = await fetch(pokeApiUrl);
+				const data = await resp.json()
+				setStore({ pokemones: data.results }); // <--- pokemones del store
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
