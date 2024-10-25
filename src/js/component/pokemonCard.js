@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const formatName = (name) => name.charAt(0).toUpperCase() + name.slice(1)
 
 const PokemonCard = (props) => {
-
 
     return (<div className="col-12 col-md-3 col-lg-4 col-xl-3 p-2 text-center">
         <div className="card">
@@ -15,7 +15,7 @@ const PokemonCard = (props) => {
             />
             <div className="card-body">
                 <h5 className="card-title">{formatName(props.name)}</h5>
-                <a href="#" className="btn btn-danger">Analizar</a>
+                <Link to={"/pokemon/"+ props.id} className="btn btn-danger">Analizar</Link>
             </div>
         </div>
     </div>)

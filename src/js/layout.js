@@ -10,6 +10,8 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
+import PokemonDetails from "./views/pokemonDetails.jsx";
+
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -23,7 +25,11 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
+
+						<Route path="/pokemon/:pokemon_id" element={<PokemonDetails />} /> 
+
 						<Route path="/demo" element={<Demo />} />
+
 						<Route path="/single/:theid" element={<Single />} />
 
 						<Route path="*" element={<h1>404 Not found!</h1>} />

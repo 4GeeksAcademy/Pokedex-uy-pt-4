@@ -27,6 +27,7 @@ export const Home = () => {
 						key={index}
 						name={pokemon.name}
 						imageUrl={formatUrl(index + 1)}
+						id={index+1}
 					/>
 				})
 			}
