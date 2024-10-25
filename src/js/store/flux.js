@@ -36,11 +36,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				*/
 			},
 
-			loadPokemons:  async () => {
-				const pokeApiUrl = "https://pokeapi.co/api/v2/pokemon"
+			loadPokemons: async () => {
+				const pokeApiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=100"
 				const resp = await fetch(pokeApiUrl);
 				const data = await resp.json()
-				setStore({ pokemones: data.results }); // <--- pokemones del store
+				setStore({ pokemones: data.results });
 			},
 
 			changeColor: (index, color) => {
