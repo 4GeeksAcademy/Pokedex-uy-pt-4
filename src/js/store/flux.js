@@ -23,7 +23,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			pokemones: []
+			pokemones: [],
+			equipo: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -56,6 +57,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+
+			addToTeam: (pokemon) => {
+				const store = getStore();
+
+				if(store.equipo.length >= 6) {
+					return
+				}
+
+				const searchPokemon = store.equipo.find( item => item.name == pokemon.name )
+
+				if(!searchPokemon){
+					setStore({ equipo: [ ...store.equipo, pokemon ] })
+				}
+
+			},
+
+			removeFromTeam: (pokemon) => {
+				const store = getStore();
+
+				const equipoNuevo = store.equipo
+					.filter( item => item.name !== pokemon.name )
+
+				setStore({ 
+					equipo: equipoNuevo
+				})
+
 			}
 		}
 	};

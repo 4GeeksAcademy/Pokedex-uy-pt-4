@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext"
 import "../../styles/home.css";
-
+import { formatUrl } from "../utils";
 import PokemonCard from "../component/pokemonCard";
 import Hero from "../component/hero";
 
-const formatUrl = (id) => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
 
 export const Home = () => {
 
